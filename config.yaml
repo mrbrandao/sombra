@@ -1,0 +1,38 @@
+# LiteLLM proxy configuration for Sombra.
+#
+# Secrets are NEVER hardcoded here. They are read from the environment using
+# the `os.environ/NAME` syntax. The `docker-compose.yml` file injects them
+# into the container from the shell environment.
+#
+# Required environment variables:
+#   OPENCODE_ZEN_API_KEY   - key for the remote LLM provider
+#   LITELLM_MASTER_KEY     - local master key used to authenticate clients
+#   PRESIDIO_ANALYZER_API_BASE   - set in docker-compose.yml
+#   PRESIDIO_ANONYMIZER_API_BASE - set in docker-compose.yml
+
+model_list:
+  - model_name: opencode-zen/deepseek-v4-flash
+    litellm_params:
+      model: openai/deepseek-v4-flash
+      api_base: "https://api.opencode.zen/v1"
+      api_key: os.environ/OPENCODE_ZEN_API_KEY
+
+litellm_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+
+guardrails:
+  - guardrail_name: "presidio-pii-guard"
+    litellm_params:
+      guardrail: "presidio"
+      mode: "pre_call"
+      default_on: true
+      presidio_language: "pt"
+      pii_entities_config:
+        EMAIL_ADDRESS: "MASK"
+        PERSON: "MASK"
+        LOCATION: "MASK"
+        PHONE_NUMBER: "MASK"
+        SOMBRA_CPF: "MASK"
+        SOMBRA_CEP: "MASK"
+        SOMBRA_CNPJ: "MASK"
+        SOMBRA_ADDRESS: "MASK"

@@ -1,0 +1,32 @@
+services:
+  presidio-analyzer:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: localhost/sombra-analyzer:latest
+    ports:
+      - "5002:3000"
+    restart: unless-stopped
+
+  presidio-anonymizer:
+    image: mcr.microsoft.com/presidio-anonymizer:latest
+    ports:
+      - "5001:3000"
+    restart: unless-stopped
+
+  litellm:
+    image: ghcr.io/berriai/litellm:main-stable
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro,z
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
+      OPENCODE_ZEN_API_KEY: ${OPENCODE_ZEN_API_KEY}
+      PRESIDIO_ANALYZER_API_BASE: http://presidio-analyzer:3000
+      PRESIDIO_ANONYMIZER_API_BASE: http://presidio-anonymizer:3000
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    restart: unless-stopped
+    depends_on:
+      - presidio-analyzer
+      - presidio-anonymizer

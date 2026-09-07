@@ -1,0 +1,375 @@
+supported_languages: 
+  - en
+  - pt
+global_regex_flags: 26
+
+recognizers:
+  # Recognizers listed here can either be loaded from the recognizers defined in code (type: predefined),
+  # or created based on the provided configuration (type: custom).
+  # For predefined:
+  # - If only a recognizer name is provided, a predefined recognizer with this name and default parameters will be loaded.
+  # - If a parameter isn't provided, the default one would be loaded.
+  # - Use 'class_name' to specify the Python class when using a custom 'name' for display/metadata
+  # For custom:
+  # - See an example configuration here: https://github.com/microsoft/presidio/blob/main/presidio-analyzer/presidio_analyzer/conf/example_recognizers.yaml
+  # - Custom pattern recognizers with this configuration can be added to this file, with type: custom
+  #  For recognizers supporting more than one language, an instance of the recognizer for each language will be created.
+  # For example, see the CreditCardRecognizer definition below:
+  - name: CreditCardRecognizer
+    supported_languages:
+    - language: en
+      context: [credit, card, visa, mastercard, cc, amex, discover, jcb, diners, maestro, instapayment]
+    - language: es
+      context: [tarjeta, credito, visa, mastercard, cc, amex, discover, jcb, diners, maestro, instapayment]
+    - language: it
+    - language: pl
+    type: predefined
+
+  - name: UsBankRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+
+  - name: UsLicenseRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+
+  - name: UsItinRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+  
+  - name: UsPassportRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+  
+  - name: UsSsnRecognizer
+    supported_languages:
+    - en
+    type: predefined
+
+  - name: UsMbiRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: UsNpiRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: NhsRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+
+  - name: UkNinoRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: UkPassportRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: UkPostcodeRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: UkVehicleRegistrationRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: SgFinRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: AuAbnRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: AuAcnRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: AuTfnRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: AuMedicareRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: NgNinRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: NgVehicleRegistrationRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: InPanRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: InAadhaarRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: InVehicleRegistrationRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: InPassportRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: EsNifRecognizer
+    supported_languages: 
+    - es
+    type: predefined
+
+  - name: EsNieRecognizer
+    supported_languages: 
+    - es
+    type: predefined
+
+  - name: ItDriverLicenseRecognizer
+    supported_languages: 
+    - it
+    type: predefined
+
+  - name: ItFiscalCodeRecognizer
+    supported_languages: 
+    - it
+    type: predefined
+
+  - name: ItVatCodeRecognizer
+    supported_languages: 
+    - it
+    type: predefined
+
+  - name: ItIdentityCardRecognizer
+    supported_languages: 
+    - it
+    type: predefined
+
+  - name: ItPassportRecognizer
+    supported_languages: 
+    - it
+    type: predefined
+
+  - name: PlPeselRecognizer
+    supported_languages: 
+    - pl
+    type: predefined
+
+  - name: KrBrnRecognizer
+    supported_languages: 
+    - ko
+    - kr
+    type: predefined
+    enabled: false
+
+  - name: KrRrnRecognizer
+    supported_languages: 
+    - ko
+    - kr
+    type: predefined
+    enabled: false
+
+  - name: KrDriverLicenseRecognizer
+    supported_languages: 
+    - ko
+    - kr
+    type: predefined
+    enabled: false
+
+  - name: KrFrnRecognizer
+    supported_languages: 
+    - ko
+    - kr
+    type: predefined
+    enabled: false
+
+  - name: ThTninRecognizer
+    supported_languages:
+    - th
+    type: predefined
+    enabled: false
+
+  - name: HuggingFaceNerRecognizer
+    supported_languages:
+    - en
+    type: predefined
+    enabled: false
+
+  - name: CryptoRecognizer
+    type: predefined
+
+  - name: DateRecognizer
+    type: predefined
+
+  - name: EmailRecognizer
+    type: predefined
+
+  - name: IbanRecognizer
+    type: predefined
+
+  - name: IpRecognizer
+    type: predefined
+
+  - name: MedicalLicenseRecognizer
+    type: predefined
+
+  - name: MacAddressRecognizer
+    type: predefined
+
+  - name: PhoneRecognizer
+    type: predefined
+
+  - name: UrlRecognizer
+    type: predefined
+
+  - name: InVoterRecognizer
+    type: predefined
+    enabled: false
+
+  - name: InGstinRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+
+  - name: BasicLangExtractRecognizer
+    supported_languages:
+      - en
+    type: predefined
+    enabled: false
+    config_path: presidio_analyzer/conf/langextract_config_basic.yaml
+
+  # --- Sombra: Brazilian PII recognizers ------------------------------------
+  # These extend Presidio's default set with patterns for Brazilian data.
+  # Everything above keeps working; Sombra only adds what is missing.
+  # See https://presidio.dataprivacystack.org/analyzer/developing_recognizers/
+
+  - name: "Sombra CPF recognizer"
+    supported_language: "pt"
+    patterns:
+      - name: "CPF formatted"
+        regex: "\\b\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}\\b"
+        score: 0.95
+      - name: "CPF unformatted"
+        regex: "\\b\\d{11}\\b"
+        score: 0.5
+    context:
+      - cpf
+      - documento
+      - inscrição
+      - inscricao
+      - cadastro de pessoa física
+      - registro
+    supported_entity: "SOMBRA_CPF"
+
+  - name: "Sombra CEP recognizer"
+    supported_language: "pt"
+    patterns:
+      - name: "CEP formatted"
+        regex: "\\b\\d{5}-\\d{3}\\b"
+        score: 0.95
+      - name: "CEP unformatted"
+        regex: "\\b\\d{8}\\b"
+        score: 0.5
+    context:
+      - cep
+      - código postal
+      - codigo postal
+      - endereço
+      - endereco
+    supported_entity: "SOMBRA_CEP"
+
+  - name: "Sombra CNPJ recognizer"
+    supported_language: "pt"
+    patterns:
+      - name: "CNPJ formatted"
+        regex: "\\b\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}\\b"
+        score: 0.95
+      - name: "CNPJ unformatted"
+        regex: "\\b\\d{14}\\b"
+        score: 0.5
+    context:
+      - cnpj
+      - empresa
+      - inscrição estadual
+      - inscricao estadual
+      - cadastro nacional da pessoa jurídica
+    supported_entity: "SOMBRA_CNPJ"
+
+  - name: "Sombra address recognizer"
+    supported_language: "pt"
+    patterns:
+      - name: "Address with street type and number"
+        regex: "\\b(?:avenida|av\\.|rua|alameda|travessa|estrada|rodovia|praça|praca|beco|viela|ladeira|vila|passagem|acesso|servidão|servidao)\\s+[A-Za-zÀ-ÿ0-9''.,/ºª\\- ]+?\\s*(?:n[º°]?\\.?|número|numero|num\\.?|n\\.?)?\\s*\\d{1,5}\\b"
+        score: 0.75
+      - name: "Property unit with number"
+        regex: "\\b(?:casa|sobrado|apartamento|apto\\.?|lote|quadra|bloco|complemento|fundos|andar|galpão|galpao|kitnet|cobertura|salão|salao)\\s*(?:n[º°]?\\.?|n\\.?)?\\s*\\d{1,5}\\b"
+        score: 0.6
+      - name: "Street type with name"
+        regex: "\\b(?:avenida|av\\.|rua|alameda|travessa|estrada|rodovia|praça|praca|beco|viela|ladeira|vila|passagem|acesso|servidão|servidao)\\s+[A-Za-zÀ-ÿ0-9''.,/ºª\\- ]{2,60}\\b"
+        score: 0.4
+    context:
+      - endereço
+      - endereco
+      - rua
+      - avenida
+      - alameda
+      - travessa
+      - bairro
+      - cidade
+      - cep
+      - casa
+      - lote
+      - quadra
+      - apartamento
+      - condomínio
+      - condominio
+      - residência
+      - residencia
+      - complemento
+      - número
+      - numero
+      - address
+    supported_entity: "SOMBRA_ADDRESS"
