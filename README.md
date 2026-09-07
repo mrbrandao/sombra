@@ -78,9 +78,8 @@ uv tool install sombra        # or: uv pip install sombra / pip install sombra
 ### 1. Start the local stack (Podman Compose)
 
 ```bash
-export OPENCODE_ZEN_API_KEY="your_real_key_here"
-export LITELLM_MASTER_KEY="sk-litellm-secret-key-1234"
-
+cp .env.example .env        # fill in your real OPENCODE_ZEN_API_KEY
+set -a; source .env; set +a
 podman-compose up -d --build
 ```
 
@@ -92,8 +91,10 @@ This starts three services:
 
 ### 2. Configure the OpenCode CLI
 
+OpenCode does not auto-load `.env`, so the proxy's master key must be in your shell:
+
 ```bash
-export LITELLM_MASTER_KEY="sk-litellm-secret-key-1234"
+set -a; source .env; set +a
 opencode run "Consult my order in the name of João, CPF 123.456.789-00, living in Curitiba, CEP 80000-000."
 ```
 

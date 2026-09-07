@@ -14,7 +14,7 @@ model_list:
   - model_name: opencode-zen/deepseek-v4-flash
     litellm_params:
       model: openai/deepseek-v4-flash
-      api_base: "https://api.opencode.zen/v1"
+      api_base: "https://opencode.ai/zen/v1"
       api_key: os.environ/OPENCODE_ZEN_API_KEY
 
 litellm_settings:

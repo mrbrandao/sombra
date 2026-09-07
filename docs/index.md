@@ -150,10 +150,32 @@ Services: analyzer on `:5002`, anonymizer on `:5001`, LiteLLM on `:4000`.
 
 ### Verify masking
 
+1. **Analyzer** — detect PII directly:
+
 ```bash
 curl -s http://localhost:5002/analyze -H "Content-Type: application/json" \
   -d '{"text":"Meu CPF é 123.456.789-00, CEP 80000-000, CNPJ 12.345.678/0001-90, Rua das Flores, 123.","language":"pt"}'
 ```
+
+2. **Full proxy path** — send a chat request with PII through LiteLLM. The
+   Presidio guardrail masks the prompt before it reaches the remote provider:
+
+```bash
+curl -s http://localhost:4000/v1/chat/completions \
+  -H "Authorization: Bearer $LITELLM_MASTER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "opencode-zen/deepseek-v4-flash",
+    "messages": [{
+      "role": "user",
+      "content": "Consult my order in the name of João, CPF 123.456.789-00, living in Curitiba, CEP 80000-000."
+    }]
+  }'
+```
+
+With `LITELLM_LOG=DEBUG` you can confirm in the LiteLLM logs that the prompt
+reaches the provider already masked, e.g. `"content": "Consult my order in
+the name of João, CPF <SOMBRA_CPF>, living in Curitiba, CEP <SOMBRA_CEP>."`.
 
 ### Documentation site
 
