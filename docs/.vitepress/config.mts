@@ -3,9 +3,10 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Sombra",
   description: "Local PII anonymization proxy for agent and LLM CLIs",
+  base: "/sombra/",
 
   head: [
-    ["link", { rel: "icon", href: "/img/favicon.ico" }],
+    ["link", { rel: "icon", href: "/sombra/img/favicon.ico" }],
   ],
 
   themeConfig: {
