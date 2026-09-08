@@ -46,6 +46,7 @@ export default defineConfig({
           { text: "Adding an entity", link: "/development/adding-an-entity" },
           { text: "Testing", link: "/development/testing" },
           { text: "Quick tests", link: "/development/quick-tests" },
+          { text: "Publishing the docs site", link: "/development/publishing-docs" },
         ],
       },
     ],
