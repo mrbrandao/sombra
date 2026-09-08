@@ -23,6 +23,7 @@ services:
     environment:
       LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
       OPENCODE_ZEN_API_KEY: ${OPENCODE_ZEN_API_KEY}
+      LITELLM_LOG: ${LITELLM_LOG:-}
       PRESIDIO_ANALYZER_API_BASE: http://presidio-analyzer:3000
       PRESIDIO_ANONYMIZER_API_BASE: http://presidio-anonymizer:3000
     command: ["--config", "/app/config.yaml", "--port", "4000"]
