@@ -27,6 +27,9 @@ live in the [docs site](docs/index.md). Run it locally with:
 ```bash
 make docs-serve
 ```
+## Author
+
+Igor Brandao - <@mrbrandao>
 
 ## License
 
