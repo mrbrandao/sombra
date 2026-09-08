@@ -28,3 +28,7 @@ OpenCode CLI → LiteLLM Proxy (:4000) → Presidio Analyzer (:5002) + Anonymize
 - Rootless Podman (no root privileges).
 - Real-time masking with <150ms added latency per request; 100% masking of formatted e-mails/CPFs/CEPs in synthetic tests; zero unmasked PII may reach the remote provider.
 - Do not commit unless explicitly asked.
+- When asked to commit use conventional commits
+- When Changes are created documentations must reflect the changes
+- Instead of print 100 of lines explaining, prefer to use ascii diagrams, a image talks from 1000 words, when presenting architectures and documenting also use ascii art text
+- For calls to github use gh command on cli
