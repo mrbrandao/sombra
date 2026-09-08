@@ -1,0 +1,53 @@
+:root {
+  --vp-c-brand-1: #a855f7;
+  --vp-c-brand-2: #9333ea;
+  --vp-c-brand-3: #7e22ce;
+
+  --vp-c-bg: #0a0a0f;
+  --vp-c-bg-soft: #13131a;
+  --vp-c-bg-alt: #0e0e14;
+  --vp-c-bg-elv: #16161f;
+
+  --vp-c-text-1: #f3f0f7;
+  --vp-c-text-2: #a9a3b8;
+  --vp-c-text-3: #6b6680;
+
+  --vp-c-border: #241f2e;
+  --vp-c-divider: #1c1824;
+
+  --vp-c-mute: #13131a;
+  --vp-c-mute-text: #a9a3b8;
+
+  --vp-c-brand-light: #c084fc;
+  --vp-c-brand-lighter: #d8b4fe;
+  --vp-c-brand-dark: #7e22ce;
+  --vp-c-brand-darker: #6b21a8;
+  --vp-c-brand-tint: rgba(168, 85, 247, 0.12);
+
+  --vp-code-color: #d8b4fe;
+  --vp-code-bg: #13131a;
+  --vp-code-block-bg: #0e0e14;
+}
+
+.VPDoc {
+  background-color: var(--vp-c-bg);
+}
+
+.VPNav {
+  background-color: rgba(10, 10, 15, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.VPButton.brand {
+  border: 1px solid var(--vp-c-brand-3);
+}
+
+a:hover,
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2);
+}
+
+::selection {
+  background: var(--vp-c-brand-tint);
+  color: var(--vp-c-brand-light);
+}

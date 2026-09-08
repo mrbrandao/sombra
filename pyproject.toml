@@ -28,8 +28,6 @@ server = []
 
 [dependency-groups]
 dev = [
-    "mkdocs>=1.5",
-    "mkdocs-material>=9.5",
     "pytest>=8.0",
 ]
 
